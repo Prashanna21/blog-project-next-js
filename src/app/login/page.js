@@ -3,7 +3,7 @@ import Button from "@/components/Button";
 import HeroSection from "@/components/HeroSection";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { getUserCredentials } from "@/utility/useLocalStorage";
 import { useRouter } from "next/navigation";
 import { useJWT } from "@/utility/useJWT";
