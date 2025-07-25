@@ -25,7 +25,7 @@ function NavBar() {
   };
 
   return (
-    <div className="fixed top-0 left-0 right-0 border-zinc-500 border-b-2 bg-black">
+    <div className="fixed top-0 left-0 right-0 border-zinc-500 border-b-2 bg-black z-100">
       <div className="max-w-[1500px] mx-auto px-8 py-4 flex justify-between">
         <Link href="/">
           <div className="font-sora text-5xl font-bold italic">The Blog</div>

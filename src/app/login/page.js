@@ -29,7 +29,7 @@ function page() {
       if (data.email === "admin@gmail.com") {
         window.location.href = "/admin";
       } else {
-        window.location.href = "/";
+        window.location.href = "/bloglist";
       }
     }
   };
