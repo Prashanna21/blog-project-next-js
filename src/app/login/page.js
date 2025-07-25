@@ -31,6 +31,10 @@ function page() {
   const router = useRouter();
   const [status, setStatus] = useState(null);
 
+  useEffect(() => {
+    ensureAdminExists();
+  }, []);
+
   const handleLogin = () => {
     const obj = {
       email: emailInputRef.current.value,
@@ -39,10 +43,6 @@ function page() {
 
     let data = getUserCredentials(obj.email, obj.password);
     setStatus(data.message);
-
-    useEffect(() => {
-      ensureAdminExists();
-    }, []);
 
     if (data.email) {
       useJWT.createToken(obj.email);
