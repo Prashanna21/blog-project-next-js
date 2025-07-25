@@ -2,7 +2,7 @@
 import { SignJWT, jwtVerify } from "jose";
 import Cookies from "js-cookie";
 
-const JWT_SECRET = love_you_3000;
+const JWT_SECRET = "love_you_3000";
 
 const EXPIRY_TIME_SECONDS = 60 * 60; // 1 hour
 
