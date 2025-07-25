@@ -8,6 +8,23 @@ import { getUserCredentials } from "@/utility/useLocalStorage";
 import { useRouter } from "next/navigation";
 import { useJWT } from "@/utility/useJWT";
 
+const ensureAdminExists = () => {
+  const existingUsers = JSON.parse(localStorage.getItem("usersInfo")) || [];
+
+  const adminExists = existingUsers.some(
+    (user) => user.email === "admin@gmail.com"
+  );
+
+  if (!adminExists) {
+    existingUsers.push({
+      email: "admin@gmail.com",
+      password: "admin",
+    });
+
+    localStorage.setItem("usersInfo", JSON.stringify(existingUsers));
+  }
+};
+
 function page() {
   const emailInputRef = useRef(null);
   const passwordInputRef = useRef(null);
@@ -22,6 +39,10 @@ function page() {
 
     let data = getUserCredentials(obj.email, obj.password);
     setStatus(data.message);
+
+    useEffect(() => {
+      ensureAdminExists();
+    }, []);
 
     if (data.email) {
       useJWT.createToken(obj.email);
